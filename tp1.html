@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Projet info 2A</title>
+	<title>TP1</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/sky.css">
+	<link rel="stylesheet" href="css/theme/night.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -28,181 +28,177 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>Projet Info 2A</h1>
-				<h3>Application de Rencontres</h3>
-				<table>
-					<tbody>
-						<tr>
-							<td><img src="image/python_logo.png" alt="" class="plain no_bg" /></td>
-							<td><img src="image/Pycharm_Logo.png" alt="" class="plain no_bg" /></td>
-							<td><img src="image/tinder.png" alt="" class="plain no_bg" /></td>
-							<td><img src="image/twitter_logo.png" alt="" class="plain no_bg" /></td>
-							<td><img src="image/postgre_logo.png" alt="" class="plain no_bg" /></td>
-							<td><img src="image/git_logo.png" alt="" class="plain no_bg" /></td>
-
-						</tr>
-					</tbody>
-				</table>
+				<h2>Compléments d'informatique : Quelques notions pour le TP1</h2>
+				
 			</section>
-			<section>
-				<h1>Contact</h1>
-				<h2>
-					<img src="image/badTime.jpg" alt="" class="plain no_bg" />
-				</h2>
-				<a href="mailto:antoine.brunetti@insee.fr">antoine.brunetti@insee.fr</a>
+				<section data-background="images/noun_Book_1181934">
+					<h1 > Cours </h1>
+				</section>
+				<section>
+					<section>
+					<h3>Un grand principe : separation of concern</h3>
+					<a
+						href="https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures">
+						<img class="plain"
+							src="https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/media/image5-2.png"
+							alt="3 layers">
+					</a>
+					<aside class="notes">Version macro en 3 couches.
+						<ul>
+							<li>Présentation : tout ce qui se charge de l'affichage</li>
+							<li>Business : c'est le métier de votre application, sa plu value</li>
+							<li>Data : gère le stokage. Plus de détails dans quelques minutes</li>
+						</ul>
+						Chaque couche communique avec celles adjacentes. Une couche à juste à savoir comment elle
+						doit demander une information et ce qu'on lui retourne
+					</aside>
+				</section>
+				<section><h2>User Interface</h2><ul>
+					<li  class="fragment">Interface-Homme-Machine qui sera ici la console / Main de votre application</li>
+					<li  class="fragment">Dans la vraie vie : Une application mobile / une page web / l'interface graphique d'un jeu</li>
+				</ul></section>
+				<section><h2>Business Logic</h2>
+					<ul>
+						<li  class="fragment">Couche métier de l'application dans laquelle l'on définit les différents objets qui interagiront et qui seront sauvegardés par ailleurs</li>
+						<li  class="fragment">Dans la vraie vie : Une application mobile / une page web / l'interface graphique d'un jeu</li>
+						<li  class="fragment"> Elle sera ici également utilisée pour l'appel aux services que nous verrons dans de futurs tps !</li>
+					</ul>
+				</section>
+				
+					<section><h2>Data Access</h2><ul>
+					<li  class="fragment">Couche interagissant avec la base de données  de l'application</li>
+					<li  class="fragment">C'est ici que sera réalisée la persistance de nos données métier (Avengers ici)</li>
+					<li class="fragment">Expose classiquement les méthodes CRUD : Create Read Update Delete</li>
+				</ul></section>
+				<section>
+                <h3>Separation of concern : bilan</h3>
+                <ul>
+                    <li class="fragment">Décomposition d'un programme en modules simples <span class="important">cohérents</span></li>
+                    <li class="fragment">Les modules <span class="important">exposent</span> des méthodes utilisables par d'autres
+                        modules
+                    </li>
+                    <li class="fragment" >Chaque module doit être une <span class="important">boîte noire</span> pour les autres (ce qui
+                        importe c'est les
+                        entrées/sorties) 
+                    </li>
+                    <li  class="fragment">Si on garde les mêmes <span class="important">entrées/sorties</span> on peut changer un module
+                        sans risque
+                    </li>
+                </ul>
+                <aside class="notes">
+                    Module archi != module python
+                    Couche c'est quand on a des modules empilés (beaucoup de voc à assimiler d'un coup)
+                    <br>
+                    Faire un dessin avec et sans. Expliquer que c'est le boulot d'un objet métier
+                    de dire comme il s'affiche et comment on le stock. Pareil c'est pa le boulot d'une vue de
+                    faire un calcul. Par contre une vue peut demander.
+                    <br>
+                    Bien insiter sur "l'indépendance des couches". Théoriquement si deux personnes travaillent sur 2
+                    couches et se sont mise d'accord sur comment elles communiquent le travail peut se faire en
+                    parallèle.
+                </aside>
 			</section>
-			<section>
-				<section>
-					<h2>Rappel du besoin</h2>
-				</section>
-				<section>Une application de rencontres c'est quoi ?
-				</section>
-
-				<section>
-					<h3>Fonctionnalités de base</h3>
-					<ul>
-						<li class="fragment">Inscription des utilisateurs</li>
-						<li class="fragment">Réalisation d'une messagerie</li>
-						<li class="fragment">Prise de rendez vous </li>
-						<li class="fragment">Création d'affinités entre les membres</li>
-						<li class="fragment">Historique de messagerie</li>
-					</ul>
-
-				</section>
-				<section>
-					<h3>Fonctionnalités de avancées</h3>
-					<ul>
-						<li class="fragment">Notifications
-						</li>
-						<li class="fragment">Sauvegarde BDD</li>
-						<li class="fragment">Chatbot</li>
-						<li class="fragment">Système de suggestions</li>
-					</ul>
-
-				</section>
 			</section>
-
-
-
-
-			<section>
-				<section>
-					<h2>L'api Foursquare</h2>
-				</section>
-				<section>
-					<h3>Application Programming Interface</h3>
-					<p>Que nous dit wikipedia</p>
-					<blockquote class="fragment" cite="https://fr.wikipedia.org/wiki/Interface_de_programmation">En
-						informatique, une interface de programmation applicative
-						(souvent désignée par le terme API pour application programming
-						interface) est un ensemble normalisé de classes, de méthodes ou
-						de fonctions qui sert de façade par laquelle un logiciel offre
-						des services à d'autres logiciels.</blockquote>
-					</p>
-
-
-				</section>
-
-				<section>
-					<h3>Dit autrement</h3>
-					<ul>
-						<li class="fragment">Brique applicative qui offre un
-							service, et qu'on utilise sans savoir comment elle fonctionne</li>
-						<li class="fragment">2 types
-							<ul>
-								<li class="fragment">Les bibliothèques logicielles</li>
-								<li class="fragment">Les web services</li>
-							</ul>
-						</li>
-						<li>
-							<p class="fragment">Note : vous risquez d'utiliser les deux</p>
-						</li>
-					</ul>
-
-
-
-
-				</section>
-
-				<section>
-					<h3>L'api foursquare 1/2</h3>
-					<ul>
-						<li>Récupère des lieux par catégories </li>
-						<li> <a href="https://developer.foursquare.com/docs/api/endpoints"> La description complète des
-								différents endpoints de l'api est ici </a></h3>
-						</li>
-					</ul>
-
-				</section>
-
-
-				<section>
-					<h3>L'api foursquare 2/2</h3>
-
-					<ul>
-						<li class="fragment">Renvoie des <b>json</b> <em>(JavaScript Object Notation)</em></li>
-						<li class="fragment">Un autre format très courant du web avec le xml</li>
-						<li class="fragment">Un example <a
-								href="https://medium.com/@aboutiana/a-brief-guide-to-using-foursquare-api-with-a-hands-on-example-on-python-6fc4d5451203">d'utilisation</a>
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3><a href="https://developer.foursquare.com/docs/api/endpoints">Doc de l'api </a></h3>
-				</section>
-			</section>
-
+			
 			<section>
 				<section>
-					<h2>Déroulement du projet</h2>
+					<h2>Comment récupérer le tp? </h2>
 				</section>
-
-				<section>
-					<h3>Les deadlines et les livrables</h3>
-					<ul>
-						<li>30 septembre : rendu du dossier d'analyse</li>
-						<li>15 novembre 20h : rapport final et code définitif</li>
-						<li>27 novembre : soutenance</li>
-					</ul>
+				<section data-background="https://hackernoon.com/hn-images/1*zm5NLjdhGd3VVTA2u-xEPg.gif" data-background-size="contain" ></section>
+				<section>Bon du coup comme vous l'avez bien deviné, on va récupérer ça sur github ici : <a href="https://github.com/Ragatzino/2019Ensai_complement-info_TP1">https://github.com/Ragatzino/2019Ensai_complement-info_TP1</a></section>
 				</section>
-
-				<section>
-					<h3>Proposition de méthodes de travail</h3>
-					<ul>
-						<li class="fragment">Fonctions "faciles" <br /> -> pair
-							programming : 2 sur un poste (de préférence de niveau
-							différent)
-						</li>
-						<li class="fragment">Fonctions "complexes" et initialisation
-							du projet <br /> -> mob programming : tous sur un poste
-						</li>
-					</ul>
-				</section>
-
-
-				<section>
-					<h3>Petit tips</h3>
-					<ul>
-						<li class="fragment">Passez du temps sur l'étude préalable
-							et la conception générale</li>
-						<li class="fragment">Cernez vos cas d'utilisations, les
-							acteurs etc (diagramme CU)</li>
-						<li class="fragment">L'autre diagramme important est celui
-							de classes, il doit guider vos développements</li>
-						<li class="fragment">Priorisez les développements par la
-							valeur</li>
-						<li class="fragment"><em>Développez un ensemble de petits modules simples plutôt qu'une énorme
-								main</em></li>
-					</ul>
-				</section>
-				<section><img src="image/WaitWhat.png" alt=" " class="plain" /></section>
-
 			</section>
 			<section>
-				<h1>Fin de la présentation</h1>
+				<section data-background="image/git_logo.png"
+					data-background-repeat="repeat" data-background-size="100px">
+					<h1>Git</h1>
+				</section>
+				<section>
+					<h2>Introduction a Git 1/2</h2>
+					<ul>
+						<li class="fragment">Git: Logiciel de version décentralisé
+						</li>
+						<li class="fragment">Permet un partage efficace et sécurisé du code entre différents utilisateurs </li>
+						<li class="fragment">Permet une parallélisation des taches de travail en utilisant des branches </li>
+						<li class="fragment">Versionning pour l'équipe projet</li>
+						<li class="fragment">Gestions des conflits lors du travail sur les mêmes bouts de code </li>
+					</ul>
+				</section>
+				<section>
+					<h2>Introduction a Git 2/2</h2>
+					<ul>
+						<li class="fragment">Création facilitées de dépots pour les projet
+						</li>
+						<li class="fragment">Relecture facilitée du code avec outils d'observation devOps: GitHub/ GitLab </li>
+						<li class="fragment">Historique du code disponible sur les espaces ou Repository aux travers des commits (messages)</li>
+						<li class="fragment">Versionning pour l'équipe projet</li>
+					</ul>
+				
+				</section>
+				<section>
+					<h3>Récupérer le TP via git bash</h3>
+						<ul>
+							<li class="fragment">Cloner un répertoire <b>distant</b> dans un dossier <b>local</b>
+								<pre><code>git clone url-github nom-de-dossier-pour-cloner</code></pre>
+							</li>
+							<li class="fragment">Ajoute tous les fichiers du répertoire à l'index Git
+								<pre><code>git add .</code></pre>
+							</li>
+							<li class="fragment">Envoie l'ensemble des fichiers de l'index sur le repository local
+								<pre><code>git commit -m "message de commit"</code></pre>
+							</li>
+						</ul>
+				</section>
+				</section>
 			</section>
 
+		<section>
+			<section data-background="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/217d5ea0-623d-40b1-9b31-027b904a5f15/dccudp7-221d1133-f3c3-48eb-a72c-c511828a1ff4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIxN2Q1ZWEwLTYyM2QtNDBiMS05YjMxLTAyN2I5MDRhNWYxNVwvZGNjdWRwNy0yMjFkMTEzMy1mM2MzLTQ4ZWItYTcyYy1jNTExODI4YTFmZjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.S3JJltb4zsHM7mjDs1sVLVZ-wvzkhEn_GfflenFMc6I"
+				data-background-repeat="repeat" data-background-size="100px">	
+				<h1>Pour le tp</h1>
+			</section>
+			<section
+				>
+				<h1>Pycharm</h1>
+				<ul>
+					<li class="fragment">Plus adapté que spyder pour le développement d'application 
+					</li>
+					<li class="fragment">VSCode est également très bon dernièrement
+					</li>
+			</section>
+			<section>
+				<h1>Psycopg2</h1>
+				<ul>
+					<li class="fragment">Librairie la plus populaire pour faire de la DAO en python
+					</li>
+					<li class="fragment">S'utilise généralement conjointement a des prépared statement
+					</li>
+					<li class="fragment">Permet de traiter l'injection SQL en filtrant certains caractères spéciaux
+					</li>
+					
+					</ul>
+			</section>
+			<section>
+				<h2>Injection SQL </h2>
+				<ul>
+					<li class="fragment">
+						<pre>SELECT * from admins WHERE login='admin' AND password='$password'</pre>
+					</li>
+					<li class="fragment">Imaginons qu'on envoie, pour password la valeur : " 'OR 1=1 -- "</li>
+					<li class="fragment">
+						<pre>SELECT * from admins WHERE login='admin' AND password='' OR 1=1</pre>
+					</li>
+					<li class="fragment">L'utilisateur arrive alors à s'authentifier et accéder à l'application !
+					</li>
+				</ul>
+					<li class="fragment"><a href="https://www.youtube.com/watch?v=ciNHn38EyRcé">Petite vidéo classique et simpa sur le sujet </a>
+					</li>
+				</ul>
+			</section>
+		</section>
+			<section>
+				<h1>Maintenant TP !</h1>
+			</section>
 
 		</div>
 	</div>
