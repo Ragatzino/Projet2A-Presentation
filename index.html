@@ -1,49 +1,250 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Projet info 2A</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Projet Info 2A</h1>
+				<h2>Application de Rencontres</h2>
+				<table>
+					<tbody>
+						<tr>
+							<td><img src="image/python_logo.png" alt="" class="plain no_bg" /></td>
+							<td><img src="image/Pycharm_Logo.png" alt="" class="plain no_bg" /></td>
+							<td><img src="image/tinder.png" alt="" class="plain no_bg" /></td>
+							<td><img src="image/twitter_logo.png" alt="" class="plain no_bg" /></td>
+							<td><img src="image/postgre_logo.png" alt="" class="plain no_bg" /></td>
+							<td><img src="image/git_logo.png" alt="" class="plain no_bg" /></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h1>Contact</h1>
+				<h2>
+					<img src="image/badTime.jpg" alt="" class="plain no_bg" />
+				</h2>
+				<a href="mailto:antoine.brunetti@insee.fr">antoine.brunetti@insee.fr</a>
+			</section>
+			<section>
+				<section>
+					<h2>Rappel du besoin</h2>
+				</section>
+				<section>Une application de rencontres c'est quoi ?
+				</section>
+
+				<section>
+					<h3>Fonctionnalités de base</h3>
+					<ul>
+						<li class="fragment">Inscription des utilisateurs</li>
+						<li class="fragment">Réalisation d'une messagerie</li>
+						<li class="fragment">Prise de rendez vous </li>
+						<li class="fragment">Création d'affinités entre les membres</li>
+						<li class="fragment">Historique de messagerie</li>
+					</ul>
+
+				</section>
+				<section>
+					<h3>Fonctionnalités de avancées</h3>
+					<ul>
+						<li class="fragment">Notifications
+						</li>
+						<li class="fragment">Sauvegarde BDD</li>
+						<li class="fragment">Chatbot</li>
+						<li class="fragment">Système de suggestions</li>
+					</ul>
+
+				</section>
+			</section>
+
+
+
+
+			<section>
+				<section>
+					<h2>L'api Foursquare</h2>
+				</section>
+				<section>
+					<h3>Application Programming Interface</h3>
+					<p>Que nous dit wikipedia</p>
+					<blockquote class="fragment" cite="https://fr.wikipedia.org/wiki/Interface_de_programmation">En
+						informatique, une interface de programmation applicative
+						(souvent désignée par le terme API pour application programming
+						interface) est un ensemble normalisé de classes, de méthodes ou
+						de fonctions qui sert de façade par laquelle un logiciel offre
+						des services à d'autres logiciels.</blockquote>
+					</p>
+
+
+				</section>
+
+				<section>
+					<h3>Dit autrement</h3>
+					<ul>
+						<li class="fragment">Brique applicative qui offre un
+							service, et qu'on utilise sans savoir comment elle fonctionne</li>
+						<li class="fragment">2 types
+							<ul>
+								<li class="fragment">Les bibliothèques logicielles</li>
+								<li class="fragment">Les web services</li>
+							</ul>
+						</li>
+						<li>
+							<p class="fragment">Note : vous risquez d'utiliser les deux</p>
+						</li>
+					</ul>
+
+
+
+
+				</section>
+
+				<section>
+					<h3>L'api foursquare 1/2</h3>
+					<ul>
+						<li>Récupère des lieux par catégories </li>
+						<li> <a href="https://developer.foursquare.com/docs/api/endpoints"> La description complète des
+								différents endpoints de l'api est ici </a></h3>
+						</li>
+					</ul>
+
+				</section>
+
+
+				<section>
+					<h3>L'api foursquare 2/2</h3>
+
+					<ul>
+						<li class="fragment">Renvoie des <b>json</b> <em>(JavaScript Object Notation)</em></li>
+						<li class="fragment">Un autre format très courant du web avec le xml</li>
+						<li class="fragment">Un example <a
+								href="https://medium.com/@aboutiana/a-brief-guide-to-using-foursquare-api-with-a-hands-on-example-on-python-6fc4d5451203">d'utilisation</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><a href="https://developer.foursquare.com/docs/api/endpoints">Doc de l'api </a></h3>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Déroulement du projet</h2>
+				</section>
+
+				<section>
+					<h3>Les deadlines et les livrables</h3>
+					<ul>
+						<li>27 septembre : rendu du dossier d'analyse</li>
+						<li>15 novembre 20h : rapport final et code définitif</li>
+						<li>27 novembre : soutenance</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Proposition de méthodes de travail</h3>
+					<ul>
+						<li class="fragment">Fonctions "faciles" <br /> -> pair
+							programming : 2 sur un poste (de préférence de niveau
+							différent)
+						</li>
+						<li class="fragment">Fonctions "complexes" et initialisation
+							du projet <br /> -> mob programming : tous sur un poste
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h3>Petit tips</h3>
+					<ul>
+						<li class="fragment">Passez du temps sur l'étude préalable
+							et la conception générale</li>
+						<li class="fragment">Cernez vos cas d'utilisations, les
+							acteurs etc (diagramme CU)</li>
+						<li class="fragment">L'autre diagramme important est celui
+							de classes, il doit guider vos développements</li>
+						<li class="fragment">Priorisez les développements par la
+							valeur</li>
+						<li class="fragment"><em>Développez un ensemble de petits modules simples plutôt qu'une énorme
+								main</em></li>
+					</ul>
+				</section>
+				<section><img src="image/drake.jpg" alt=" " class="plain" /></section>
+
+			</section>
+			<section>
+				<h1>Fin de la présentation</h1>
+			</section>
+
+
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}],
+			// Display the page number of the current slide
+			slideNumber: true,
+
+			// Push each slide change to the browser history
+			history: true,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: true,
+
+			// 			width : "80%",
+			// 			height : "80%"
+
+		});
+		Reveal.configure({ slideNumber: 'c/t' });
+	</script>
+</body>
+
 </html>
