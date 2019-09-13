@@ -85,11 +85,12 @@
 
 <section data-markdown>
 					<script type="application/javascript">
-						## CSV
+                        ## CSV
+```
 titre;commune;auteur;code_insee;nombre_de_prets_2017
 Star Wars : le retour du Jedi;Cesson-Sevigne;Kershner Irvin;35051.0;10.0
 Blanche Neige et le chasseur ;Cesson-Sevigne;Sanders Rupert;35051.0;10.0
-						
+```						
 						
 </script>
 </section>
@@ -103,7 +104,8 @@ Blanche Neige et le chasseur ;Cesson-Sevigne;Sanders Rupert;35051.0;10.0
 
 <section data-markdown>
 					<script type="text/template">
-						## Lire en csv
+                        ## Lire en csv
+```
 import csv
 
 #Ouvrir le fichier en lecture
@@ -114,7 +116,7 @@ with open('./test.csv', 'r') as csvfile:
     for row in csvreader:
         for column in row:
             print(column)
-						
+```
 						
 </script>
 </section> </section>
