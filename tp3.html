@@ -38,7 +38,8 @@
 </section>
 <section data-markdown>
 					<script type="text/template">
-						## XML
+                        ## XML
+```
 <Bibliotheque>
 <CD> <titre>Blanche Neige et le chasseur</titre>
       <commune> Cesson-Sevigne</commune>
@@ -53,7 +54,7 @@
       <nombre_de_prets_2017> 1.0</nombre_de_prets_2017>
 </CD>
 </Bibliotheque>
-						
+```					
 						
 </script>
 </section>
@@ -61,7 +62,8 @@
 
 <section data-markdown>
 					<script type="application/javascript">
-						## JSON
+                        ## JSON
+```
 [ 
 {
       "titre": "Star Wars : le retour du Jedi",
@@ -77,7 +79,7 @@
       "nombre_de_prets_2017": 10.0
   }
 ]
-						
+```					
 						
 </script>
 </section>
@@ -222,13 +224,16 @@ with open('./test2.xml', 'wb') as xmlfile:
 					<section data-markdown>
 					
 <script type="text/template">
+    ```
 import requests
-				
+```
+```		
 proxies = {
                 'http': properties.http_proxy,
                 'https': properties.https_proxy
             }
-				
+```
+```				
 params = {
                 'apikey': properties.api_key,
                 'dataset': "statistiques-de-prets-de-dvd-en-2017-cesson-sevigne",
@@ -237,9 +242,10 @@ response = requests.get(
                 'https://data.rennesmetropole.fr/api/records/1.0/search/'
                 , proxies=proxies
                 , params=params)
-
-				
+```
+```		
 data = response.json()['records']
+```
 				
 </script>
 				</section>
