@@ -224,15 +224,17 @@ with open('./test2.xml', 'wb') as xmlfile:
 					<section data-markdown>
 					
 <script type="text/template">
-    ```
+```
 import requests
 ```
+
 ```		
 proxies = {
                 'http': properties.http_proxy,
                 'https': properties.https_proxy
             }
 ```
+
 ```				
 params = {
                 'apikey': properties.api_key,
@@ -243,6 +245,7 @@ response = requests.get(
                 , proxies=proxies
                 , params=params)
 ```
+
 ```		
 data = response.json()['records']
 ```
