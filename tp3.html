@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>TP1</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/night.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Compléments d'informatique : Quelques notions pour le TP3</h2>
+				
+			</section>
+<section>
+<section data-background="images/noun_Book_1181934">
+					<h1 > Types de données </h1>
+
+</section>
+<section data-markdown>
+					<script type="text/template">
+						## XML
+<Bibliotheque>
+<CD> <titre>Blanche Neige et le chasseur</titre>
+      <commune> Cesson-Sevigne</commune>
+      <auteur> Sanders Rupert</auteur>
+      <code_insee> 35051.0</code_insee>
+      <nombre_de_prets_2017> 10.0</nombre_de_prets_2017>
+</CD>
+<CD> <titre>Blanche Neige et le chasseur 2</titre>
+      <commune> Cesson-Sevigne</commune>
+      <auteur> encore Sanders Rupert ? :o </auteur>
+      <code_insee> 35051.0</code_insee>
+      <nombre_de_prets_2017> 1.0</nombre_de_prets_2017>
+</CD>
+</Bibliotheque>
+						
+						
+</script>
+</section>
+
+
+<section data-markdown>
+					<script type="application/javascript">
+						## JSON
+[ 
+{
+      "titre": "Star Wars : le retour du Jedi",
+      "commune": "Cesson-Sevigne",
+      "auteur": "Kershner Irvin",
+      "code_insee": 35051.0,
+      "nombre_de_prets_2017": 10.0
+  },{ 
+      "titre": "Blanche Neige et le chasseur",
+      "commune": "Cesson-Sevigne",
+      "auteur": "Sanders Rupert",
+      "code_insee": 35051.0,
+      "nombre_de_prets_2017": 10.0
+  }
+]
+						
+						
+</script>
+</section>
+
+
+<section data-markdown>
+					<script type="application/javascript">
+						## CSV
+titre;commune;auteur;code_insee;nombre_de_prets_2017
+Star Wars : le retour du Jedi;Cesson-Sevigne;Kershner Irvin;35051.0;10.0
+Blanche Neige et le chasseur ;Cesson-Sevigne;Sanders Rupert;35051.0;10.0
+						
+						
+</script>
+</section>
+				</section>
+</section>
+<section>
+				<section data-background="images/noun_Book_1181934">
+					<h1 > Exemples de code </h1>
+				</section>
+				<section>
+
+<section data-markdown>
+					<script type="text/template">
+						## Lire en csv
+import csv
+
+#Ouvrir le fichier en lecture
+with open('./test.csv', 'r') as csvfile:
+    #Définition du reader
+    csvreader = csv.reader(csvfile, delimiter=';')
+    #Lecture ligne par ligne
+    for row in csvreader:
+        for column in row:
+            print(column)
+						
+						
+</script>
+</section> </section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Ecrire en csv
+import csv
+
+#Ouvrir le fichier en écriture
+with open('./test2.csv', 'w',  newline='') as csvfile:
+    #Définition de writer
+    csvwriter = csv.writer(csvfile, delimiter=',',)
+    #Ecriture d'une ligne
+    csvwriter.writerow(['nom', 'prénom', 'age'])			
+						
+</script>
+				</section>
+
+
+				
+
+
+<section data-markdown>
+					<script type="text/template">
+						## Lire en json
+import json
+
+#Ouvrir le fichier en lecture
+with open('./test.json', 'r', encoding="utf-8") as jsonfile:
+    #Lecture du json en dictionnaire
+    data = json.load(jsonfile)
+    #Lecture ligne par ligne
+    for row in data:
+        # on ajoute une ligne dans le fichier et on enleve la donnée depuis le data
+                fieldsValues = row['fields'].values()
+                row.pop('fields')
+	# puis on l'écrit (en fct de la conversion)
+						
+						
+</script>
+</section>
+<section data-markdown>
+					<script type="text/template">
+						## Ecrire en json
+import json
+
+#Ouvrir le fichier en écriture
+with open('./test2.json', 'r', encoding="utf-8") as jsonfile:
+    #données : tableau d'entrées clé:valeur
+    result = [dico1,dico2]
+    #Lecture ligne par ligne
+    jsonfile.write(json.dumps(result))
+
+						
+						
+</script>
+</section>
+<section data-markdown>
+					<script type="text/template">
+						## lire en xml
+import xml.etree.ElementTree as ET
+
+#Ouvrir le fichier en lecture
+with open('./test.xml', 'wb') as xmlfile:
+    #données : utilisation d'un parseur xml de la librarie etree
+    tree=ET.parse(xmlfile)
+    #Lecture ligne par ligne
+    root = tree.getroot()
+    for child in root : 
+        print(child.tag,child.attrib)
+						
+						
+</script>
+</section>
+<section data-markdown>
+					<script type="text/template">
+						## Ecrire en xml
+from lxml import etree
+
+#Ouvrir le fichier en écriture
+with open('./test2.xml', 'wb') as xmlfile:
+    #données : dico en entrée
+    result = [dico1,dico2]
+    xmlfile.write(etree.tostring(result, pretty_print=True))
+						
+						
+</script>
+</section>
+</section>
+</section>
+<section>
+<section>
+					<h2> Rappel des tps précédents</h2>
+					
+				</section>
+<section>
+					<h3> Comment effectuer une requête HTTP GET sur une api ? </h3>					<li  class="fragment">C'est simple: utilisez request</li>
+					<li  class="fragment">Sur une api comme <a href=https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=frequentation_parheure&refine.periode=2017>celle ci </a></li>
+					<li class="fragment">A condition d'y mettre les bons paramètres</li>
+
+				</section>
+					<section data-markdown>
+					
+<script type="text/template">
+import requests
+				
+proxies = {
+                'http': properties.http_proxy,
+                'https': properties.https_proxy
+            }
+				
+params = {
+                'apikey': properties.api_key,
+                'dataset': "statistiques-de-prets-de-dvd-en-2017-cesson-sevigne",
+                "rows": 6288}
+response = requests.get(
+                'https://data.rennesmetropole.fr/api/records/1.0/search/'
+                , proxies=proxies
+                , params=params)
+
+				
+data = response.json()['records']
+				
+</script>
+				</section>
+		</section>
+<section>
+<section>
+				<h1>Bonus </h1>
+			</section>
+<section><h3>Le webscraping c'est quoi? </h3>
+<li  class="fragment">Il s'agit littéralement d'extraction de données sur des sites web via un script ou un programme (WIKI)</li>
+					<li class="fragment">C'est quoi un site web? </li></section>
+<section><h3>C'est quoi un site web </h3> <li class="fragment">C'est un serveur et une ihm qui est interprétée par votre navigateur </li>
+<li class="fragment">Et interprété en HTML, tout comme ces diapos ! 🙂  </li>
+<li class="fragment">HTML: HyperText Markup Language -> Markup=Balise -> On peut utiliser un parser pour retrouver les informations que l'on souhaite  </li></section>
+
+<section>
+
+<section data-markdown>
+					<script type="text/template">
+						## Exemple de code pour l'explication
+inserer le code
+</script>
+</section>
+
+
+<section data-markdown>
+					<script type="text/template">
+						## Analyse pour la posterité
+request.get("monurl")
+
+#### Ensuite on récupère le html dans le parser etree
+tree = etree.HTML(response.text)
+
+####  puis on utilise Xpath pour récuperer les balises d'un certain type
+result = tree.xpath('//h1/following-sibling::p')
+</script>
+</section>
+</section>
+</section>
+<section>
+<section> <h2>Bonus 2 : Rappel sur la persistance des données<h2></section>
+<section> <h3> Connexion a la BDD </h3> <li class="fragment"> Créez une classe connection.py de cette manière : </li>
+<li class="fragment">  <pre><code class="python" data-trim data-line-numbers="4,8-11">
+import psycopg2
+import properties
+
+def get_connection():
+    return psycopg2.connect(host=properties.db_host, port=properties.db_port,
+                              database=properties.db_database, user=properties.db_id,
+					 password=properties.db_password)
+</code></pre> </li> 
+<li class="fragment"> Vous n'avez plus qu'a paramétrer comme au tp1 les properties 🙂.</li></section>
+
+<section><h3>Vous vous rappelez du super gif de shrek de Remi? </h3> <li class="fragment">Ce qui est le plus important c'est vraiment la decomposition en couches </li>
+<li class="fragment">Il faut donc créer pour chaque classe objet, un objetDao associé qui définit une méthode parmi CRUD </li>
+</section>
+
+<section><h3>CRUD</h3> <li class="fragment">  Create <pre><code class="hljs" data-trim data-line-numbers="4,8-11">  def create(self, frequentation):
+        connexion = connection.get_connection() 
+        with connexion.cursor() as cur:
+            try:
+                cur.execute(
+                    "INSERT INTO [...] ")
+  connexion.commit()
+            except ValueError as e:
+                connexion.rollback()
+            finally:
+                connexion.close()
+</code></pre> </li>
+</section>
+<section><h3>CRUD</h3>  <li>  Read <pre><code class="hljs" data-trim data-line-numbers="4,8-11">  def read(self, frequentation):
+        connexion = connection.get_connection() 
+        with connexion.cursor() as cur:
+            try:
+                cur.execute(
+                    "SELECT * FROM [...] WHERE ")
+  connexion.commit()
+            except ValueError as e:
+                connexion.rollback()
+            finally:
+                connexion.close()
+</code></pre> </li></section>
+<section><h3>CRUD</h3>  <li >  Update <pre><code class="hljs" data-trim data-line-numbers="4,8-11">  def update(self, frequentation):
+        connexion = connection.get_connection() 
+        with connexion.cursor() as cur:
+            try:
+                cur.execute(
+                    "UPDATE [...] SET [...] WHERE")
+  connexion.commit()
+            except ValueError as e:
+                connexion.rollback()
+            finally:
+                connexion.close()
+</code></pre> </li></section>
+<section><h3>CRUD</h3>  <li >  Delete <pre><code class="hljs" data-trim data-line-numbers="4,8-11">  def delete(self, frequentation):
+        connexion = connection.get_connection() 
+        with connexion.cursor() as cur:
+            try:
+                cur.execute(
+                    "DELETE FROM [...] WHERE")
+  connexion.commit()
+            except ValueError as e:
+                connexion.rollback()
+            finally:
+                connexion.close()
+</code></pre> </li></section>	
+</section>
+
+<section><h2>Merci pour votre attention !</h2>
+</section>
+
+
+
+
+</section>
+			<section>
+				<h1>Maintenant TP !</h1>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}],
+			// Display the page number of the current slide
+			slideNumber: true,
+
+			// Push each slide change to the browser history
+			history: true,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: true,
+
+			// 			width : "80%",
+			// 			height : "80%"
+
+		});
+		Reveal.configure({ slideNumber: 'c/t' });
+	</script>
+</body>
+
+</html>
