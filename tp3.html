@@ -312,8 +312,8 @@ result = tree.xpath('//h1/following-sibling::p')
 </section>
 <section>
 <section> <h2>Bonus 2 : Rappel sur la persistance des données<h2></section>
-<section> <h3> Connexion a la BDD </h3> <li class="fragment"> Créez une classe connection.py de cette manière : </li>
-<li class="fragment">  <pre><code class="python" data-trim data-line-numbers="4,8-11">
+<section> <h3> Connexion a la BDD </h3> <li class="fragment"> Créez une classe connection.py de cette manière : 
+  <pre><code class="python" data-trim data-line-numbers="4,8-11">
 import psycopg2
 import properties
 
@@ -321,8 +321,8 @@ def get_connection():
     return psycopg2.connect(host=properties.db_host, port=properties.db_port,
                               database=properties.db_database, user=properties.db_id,
 					 password=properties.db_password)
-</code></pre> </li> 
-<li class="fragment"> Vous n'avez plus qu'a paramétrer comme au tp1 les properties 🙂.</li></section>
+</code></pre>  </li>
+<li class="fragment"> Vous n'avez plus qu'a paramétrer comme au tp1 les properties .</li></section>
 
 <section><h3>Vous vous rappelez du super gif de shrek de Remi? </h3> <li class="fragment">Ce qui est le plus important c'est vraiment la decomposition en couches </li>
 <li class="fragment">Il faut donc créer pour chaque classe objet, un objetDao associé qui définit une méthode parmi CRUD </li>
